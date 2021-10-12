@@ -28,3 +28,5 @@ const childCoins = [
     parentCoin: cryptoCurrencies[1],
   },
 ];
+
+module.exports = { cryptoCurrencies, childCoins };
