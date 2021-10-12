@@ -50,4 +50,8 @@ const myFunction2 = function () {
   return 'string'; // normal return
 };
 
+function myfunction3() {
+  return 'string';
+}
+
 /////////////////////////////////////////
