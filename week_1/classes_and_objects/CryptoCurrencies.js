@@ -1,12 +1,10 @@
 class CryptoCurrency {
-  constructor(name, price, circulatingSupply) {
-    this.name = name;
-    this.price = price;
-    this.circulatingSupply = circulatingSupply;
+  constructor(name, price) {
+    super(name, price);
   }
 
-  marketCap() {
-    return this.price * this.circulatingSupply;
+  marketCap(price, circulatingSupply) {
+    return price * circulatingSupply;
   }
 }
 
