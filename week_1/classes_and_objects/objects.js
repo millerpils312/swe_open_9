@@ -3,6 +3,10 @@ const cryptoCurrencies = [
     name: 'Bitcoin',
     price: 49000,
     circulatingSupply: 2_100_000,
+    popularityRating: 1,
+    popularity: function () {
+      return 'Hello';
+    },
     marketCap: function () {
       return marketCapHelper(this.price, this.circulatingSupply);
     },
@@ -22,7 +26,6 @@ const childCoins = [
     name: 'Uniswap',
     price: 2200,
     circulatingSupply: 2_000_000,
-    // popularity: 324,
     marketCap: function () {
       return marketCapHelper(this.price, this.circulatingSupply);
     },

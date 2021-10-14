@@ -8,7 +8,11 @@ describe('crypto currencies', () => {
     expect(cryptoCurrencies[0].name).toBe('Bitcoin');
   });
 
-  test('it should return market cap from market cap function', () => {
+  test.skip('it should return market cap from market cap function', () => {
     expect(typeof cryptoCurrencies[0].marketCap()).toEqual('number');
+  });
+
+  test('it should return a string including the popularity of the crpto currency', () => {
+    expect(cryptoCurrencies[0].popularity()).toBe('Hello');
   });
 });
