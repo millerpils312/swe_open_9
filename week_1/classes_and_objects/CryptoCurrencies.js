@@ -1,9 +1,10 @@
-class CryptoCurrency {
+const Currency = require('./Currency');
+
+class CryptoCurrency extends Currency {
   static CryptoCurrencies = [];
 
   constructor(name, price) {
-    this.name = name;
-    this.price = price;
+    super(name, price);
     CryptoCurrency.CryptoCurrencies.push(this);
   }
 

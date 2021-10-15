@@ -1,4 +1,5 @@
 const CryptoCurrency = require('./CryptoCurrencies');
+const Currency = require('./Currency');
 let bitcoin = null,
   ethereum = null;
 
@@ -8,12 +9,17 @@ describe('crypto currencies', () => {
     ethereum = new CryptoCurrency('Ethereum', 40_000, 4_000_000);
   });
 
-  test('bitcoin should have name', () => {
+  test('bitcoins should have name', () => {
     expect(bitcoin.name).toBe('Bitcoin');
     expect(ethereum.name).toBe('Ethereum');
   });
 
   test('it should return a number from market cap', () => {
     expect(CryptoCurrency.marketCap(1, 10)).toEqual(10);
+  });
+
+  test('a crypto should be an instance of currency super class', () => {
+    expect(bitcoin).toBeInstanceOf(Currency);
+    expect(ethereum).toBeInstanceOf(Currency);
   });
 });

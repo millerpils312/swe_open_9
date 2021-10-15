@@ -1,7 +1,7 @@
 class Currency {
-  constructor(name, value) {
+  constructor(name, price) {
     this.name = name;
-    this.value = value;
+    this.price = price;
   }
 }
 
