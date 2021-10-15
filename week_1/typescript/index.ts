@@ -6,7 +6,7 @@ unlucky = '22';
 
 //////////////////
 
-type Style = 'bold' | 'italic' | 'opaque';
+type Style = 'bold' | 'italic' | 'opaque'; // union types
 
 let font: Style;
 
@@ -73,7 +73,7 @@ const myListArr: MyList = [1];
 
 ///////////////////
 
-// <T> 
+// <T>
 
 class Test<T> {
   constructor(public name: T) {
@@ -81,4 +81,4 @@ class Test<T> {
   }
 }
 
-let t = new Test("Dan")
+let t = new Test('Dan');

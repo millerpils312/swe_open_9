@@ -8,7 +8,12 @@ describe('crypto currencies', () => {
     ethereum = new CryptoCurrency('Ethereum', 40_000, 4_000_000);
   });
 
+  test('bitcoin should have name', () => {
+    expect(bitcoin.name).toBe('Bitcoin');
+    expect(ethereum.name).toBe('Ethereum');
+  });
+
   test('it should return a number from market cap', () => {
-    expect(typeof bitcoin.marketCap()).toBe('number');
+    expect(CryptoCurrency.marketCap(1, 10)).toEqual(10);
   });
 });
