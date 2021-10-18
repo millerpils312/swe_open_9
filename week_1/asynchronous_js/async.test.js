@@ -15,9 +15,13 @@ describe('callback timeout', () => {
 
 describe('promise timeout', () => {
   test("it should return the promise and resolve with 'done'", () => {
-    return timeoutPromise().then((result) => {
-      expect(result).toBe('done');
-    });
+    return timeoutPromise()
+      .then((result) => {
+        expect(result).toBe('done');
+      })
+      .catch((error) => {
+        expect(error).toBe('failed');
+      });
   });
 });
 
