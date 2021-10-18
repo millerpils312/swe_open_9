@@ -15,6 +15,7 @@ describe('callback timeout', () => {
 
 describe('promise timeout', () => {
   test("it should return the promise and resolve with 'done'", () => {
+    // Jest requires return
     return timeoutPromise()
       .then((result) => {
         expect(result).toBe('done');
@@ -26,7 +27,7 @@ describe('promise timeout', () => {
 });
 
 describe('async timeout', () => {
-  test("the async timeout function should return 'async done' once done", async () => {
+  test('the async function fetch should return a response object', async () => {
     const response = await fetch();
     expect(response.status).toEqual(200);
     expect(response.body.name).toBe('Daniel');
