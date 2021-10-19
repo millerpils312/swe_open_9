@@ -17,7 +17,7 @@ function returnAPromise() {
     };
 
     // request was a success? Resolve it!
-    resolve(response);
+    // resolve(response);
 
     // request failed? Reject it!
     reject('Error: something went wrong');
@@ -25,14 +25,15 @@ function returnAPromise() {
 }
 
 returnAPromise()
-  .then((response) => console.log(response))
-  .catch((error) => console.log(error));
+  .then((response) => console.log(response)) // then = success/resolved
+  .catch((error) => console.log(error)); // catch = error
 
 ////////////////////////////////////////////////
 
 fetch('https://jsonplaceholder.typicode.com/todos/1')
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+  .then((response) => response.json()) // success
+  .then((json) => console.log(json)) // success
+  .catch((e) => console.log(e.message)); // failure
 
 ////////////////////////////////////////////////
 
@@ -41,9 +42,16 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
  * @returns Promise
  */
 async function fetchJson() {
-  const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-  const json = await response.json();
-  return json;
+  try {
+    const response = await fetch(
+      'https://jsonplaceholder.typicode.com/todos/1'
+    );
+    return await response.json();
+  } catch (e) {
+    console.log(e.message);
+  }
 }
 
-fetchJson().then((json) => console.log(json));
+fetchJson()
+  .then((json) => console.log(json))
+  .catch((e) => console.log(e.message));
