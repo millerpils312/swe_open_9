@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/millerpils/dans_bootcamp_examples/issues"
   },
-  "homepage": "https://github.com/millerpils/dans_bootcamp_examples#readme"
+  "homepage": "https://github.com/millerpils/dans_bootcamp_examples#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.5"
+  }
 }
