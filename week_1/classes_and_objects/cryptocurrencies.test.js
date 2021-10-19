@@ -22,4 +22,9 @@ describe('crypto currencies', () => {
     expect(bitcoin).toBeInstanceOf(Currency);
     expect(ethereum).toBeInstanceOf(Currency);
   });
+
+  test('can change name using setter and get it using getter', () => {
+    bitcoin.changeName = 'Bitcoin2';
+    expect(bitcoin.getName).toEqual('Bitcoin2');
+  });
 });

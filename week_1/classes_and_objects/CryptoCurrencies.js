@@ -13,6 +13,16 @@ class CryptoCurrency extends Currency {
   static marketCap(price, circulatingSupply) {
     return price * circulatingSupply;
   }
+
+  // sets set
+  set changeName(newName) {
+    this.name = newName;
+  }
+
+  // gets get (also good for computed props)
+  get getName() {
+    return this.name;
+  }
 }
 
 module.exports = CryptoCurrency;
