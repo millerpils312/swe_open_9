@@ -12,7 +12,7 @@ const {
 async function main() {
   try {
     await start();
-    const objects = await createTables();
+    const objects = await createRows();
     await runQueries(objects);
   } catch (e) {
     throw new Error(e.message);
@@ -36,7 +36,7 @@ main().catch((e) => console.log(`Caught error: ${e}`));
  * Creates the rows in the db
  * @returns array of objects
  */
-async function createTables() {
+async function createRows() {
   // create the objects (and rows!)
   const theRestaurant = await Restaurant.create({
     name: 'Pizza Hut',
@@ -66,16 +66,19 @@ async function createTables() {
 async function runQueries(objects) {
   [theRestaurant] = objects; // objects[0], objects[1], objects[2]
 
-  const restaurants = await Restaurant.findAll({}); // get all restaurants / CRUD = Read
+  const restaurants = await Restaurant.findAll({}); // get all restaurants
+
+  // C = Restaurant.create({}) - done
+  // R = Restaurant.findAll({}) - done
+  // U = Restaurant.update()
+  // D = Restaurant.destroy()
+
+  // get Menus that belong to a restaurant
   const menus = await theRestaurant.getMenus();
+
+  // --> get menu items that belong to a menu here
+  // --> write tests in jest to prove your restaurant CRUD functions work
 
   console.log(`**** Found all restos: ${JSON.stringify(restaurants)}`);
   console.log(`**** Found all menus: ${JSON.stringify(menus)}`);
 }
-
-/*
-  - 1. CRUD for Restaurants
-  - 2. get Menus that belong to a restaurant - DONE
-  - 3. get MenuItems that belong to a menu
-  - 4. Test our Sequelize code in Jest (nice to have)
-*/
