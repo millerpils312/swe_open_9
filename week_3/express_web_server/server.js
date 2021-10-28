@@ -6,6 +6,12 @@ const port = 3001;
 // assign instance of express to app variable
 const app = express();
 
+// serve static assets from public dir
+app.use(express.static('public'));
+
+// support urlencoded bodies (e.g. form POST)
+app.use(express.urlencoded({ extended: true }));
+
 // handle http://localhost:3001
 app.get('/', (request, response) => {
   response.send(`Hello, SWEOpen9 AKA Cool Coderz.`);
@@ -35,6 +41,14 @@ app.get('/crypto/:id', (request, response) => {
   }
 
   response.send(obj);
+});
+
+app.post('/users', (request, response) => {
+  response.send(
+    `Hey ${request.body.username}!
+    <a href="/">Go back home</a>
+  `
+  );
 });
 
 // listen for connections on port 3001 - this starts the server
