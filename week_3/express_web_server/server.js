@@ -16,13 +16,14 @@ app.get('/restaurant/:id', (request, response) => {
   // :id = a dynamic (changeable) parameter
 
   response.send(
-    `Hello, you asked for the crypto with an ID of ${request.params.id}`
+    `Hello, you asked for the restaurant with an ID of ${request.params.id}`
   );
 });
 
 // handle http://localhost:3001/crypto/1 - dynamic route parameters
 app.get('/crypto/:id', (request, response) => {
   // mock fetch crypto id from database
+  obj = null;
 
   if (request.params.id === '1') {
     obj = {
