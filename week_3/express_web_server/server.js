@@ -8,7 +8,7 @@ const app = express();
 
 // handle http://localhost:3001
 app.get('/', (request, response) => {
-  response.send(`Hello, SWEOpen9 AKA Cool Coderz. Status code`);
+  response.send(`Hello, SWEOpen9 AKA Cool Coderz.`);
 });
 
 // handle http://localhost:3001/restaurant/1 - dynamic route parameters
