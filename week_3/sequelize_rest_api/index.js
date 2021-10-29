@@ -1,8 +1,52 @@
 // get the instance of sequelize
-const { connection } = require('./sequelize-connect');
+const {
+  connection,
+  Restaurant,
+  Menu,
+  MenuItem,
+} = require('./sequelize-connect');
 const express = require('express');
 const app = express();
 const port = 3002;
+
+// support req.body parsing
+app.use(express.json());
+
+// app.post('/api/restaurants', (req, res) => {
+//   res.send(req.body);
+// });
+
+app.post('/api/restaurants', async (req, res) => {
+  try {
+    // create a row in the database using sequelize create method
+    const restaurant = await Restaurant.create(req.body);
+
+    // 201 = created a resource
+    res.status(201).send(restaurant);
+  } catch (e) {
+    res.status(400).send(e.message);
+  }
+});
+
+app.get('/api/restaurants', async (req, res) => {
+  try {
+    // create a row in the database using sequelize create method
+    const restaurants = await Restaurant.findAll({});
+
+    // 200 = success
+    res.status(200).send(restaurants);
+  } catch (e) {
+    res.status(400).send(e.message);
+  }
+});
+
+// 1. create an endpoint that will delete a restaurant by ID (HTTP Method = delete)
+
+// 2. create an endpoint that will update a restaurant by ID (HTTP Method = put)
+
+// 3. create a suite of menu and menu item routes that will CRUD each resource
+
+// 4. find a way to relate the menu items to the menu and the menu to the restaurant
 
 /**
  * Synchronize all models with db
@@ -10,7 +54,7 @@ const port = 3002;
 async function start() {
   await connection.sync({
     logging: false, // don't log everything
-    force: true, // drop tables each time
+    // force: true, // drop tables each time
   });
 }
 
