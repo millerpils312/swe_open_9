@@ -44,6 +44,8 @@ app.get('/api/restaurants', async (req, res) => {
 
 // 4. find a way to relate the menu items to the menu and the menu to the restaurant
 
+// 5. use Sequelize validation to validate the data being sent (you'll do this in the model)
+
 /**
  * Synchronize all models with db
  */
