@@ -12,10 +12,6 @@ const port = 3002;
 // support req.body parsing
 app.use(express.json());
 
-// app.post('/api/restaurants', (req, res) => {
-//   res.send(req.body);
-// });
-
 app.post('/api/restaurants', async (req, res) => {
   try {
     // create a row in the database using sequelize create method
