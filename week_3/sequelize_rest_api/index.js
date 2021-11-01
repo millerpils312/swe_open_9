@@ -47,7 +47,18 @@ app
 
 // 5. find a way to relate the menu items to the menu and the menu to the restaurant
 
-// 6. use Sequelize validation to validate the data being sent (you'll do this in the model). Which status code would you send back?
+// 6 [optional]. use Sequelize validation to validate the data being sent (you'll do this in the model). Which status code would you send back?
+
+/* 7 [optional]. take a look at query params to sort results and to get a subset of results, 
+
+e.g. to get a subset of results you might use a limit param:
+
+http://localhost:3001/restaurants?limit=2
+
+To sort, you might sort by a field and sort ascending or descending. E.G to sort 
+
+http://localhost:3001/restaurants?sort_by=name&order_by=asc
+
 
 /**
  * Synchronize all models with db
