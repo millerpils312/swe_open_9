@@ -4,7 +4,7 @@ const port = 8001;
 const restaurantRoutes = require('./routes/web/restaurants');
 const handlebars = require('./handlebars');
 
-// set-up view "engine"
+// set-up view "engine" - res.render
 app.engine('handlebars', handlebars);
 app.set('view engine', 'handlebars');
 

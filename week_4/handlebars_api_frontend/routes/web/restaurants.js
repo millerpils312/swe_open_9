@@ -2,7 +2,7 @@ const express = require('express');
 const Router = express.Router();
 const fetch = require('node-fetch');
 const config = require('../../config');
-const url = `${config.url.restaurants}`;
+const url = `${config.url.restaurants}`; // http://localhost:3002/api/restaurants
 
 Router
   // READ
