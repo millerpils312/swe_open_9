@@ -1,0 +1,9 @@
+<div class="promo-blocks">
+  {{#if restaurants.length }}
+    {{#each restaurants }}
+      {{> restaurantItem this }}
+    {{/each}}
+  {{else}}
+    <p>No restaurants left :(</p>
+  {{/if}}
+</div>
