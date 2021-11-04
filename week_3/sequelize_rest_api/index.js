@@ -1,41 +1,14 @@
 // get the instance of sequelize
-const {
-  connection,
-  Restaurant,
-  Menu,
-  MenuItem,
-} = require('./sequelize-connect');
+const { connection } = require('./sequelize-connect');
 const express = require('express');
 const app = express();
 const port = 3002;
+const restaurantRoutes = require('./resources/restaurant');
 
 // support req.body parsing
 app.use(express.json());
 
-app
-  .post('/api/restaurants', async (req, res) => {
-    try {
-      // create a row in the database using sequelize create method
-      await Restaurant.create(req.body);
-
-      // 201 = created a resource
-      res.status(201).send();
-    } catch (e) {
-      res.status(400).send(e.message);
-    }
-  })
-
-  .get('/api/restaurants', async (req, res) => {
-    try {
-      // create a row in the database using sequelize create method
-      const restaurants = await Restaurant.findAll({});
-
-      // 200 = success
-      res.status(200).send(restaurants);
-    } catch (e) {
-      res.status(400).send(e.message);
-    }
-  });
+app.use('/api/restaurants', restaurantRoutes);
 
 // 1. create an endpoint that will get a restaurant by ID (HTTP Method = get)
 
