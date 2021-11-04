@@ -23,6 +23,11 @@ Router.post('/', async (req, res, next) => {
     res.render('newRestaurant');
   })
 
+  .get('/:id/edit', (req, res, next) => {
+    // render the update form
+    res.render('updateRestaurant', { restaurantId: req.params.id });
+  })
+
   .get('/', async (req, res, next) => {
     try {
       const response = await fetch(url);

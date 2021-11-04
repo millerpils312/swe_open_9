@@ -1,0 +1,26 @@
+<h2>Update a restaurant</h2>
+
+<form id='updateForm'>
+  <input
+    name='restaurantId'
+    id='restaurantId'
+    type='hidden'
+    value='{{restaurantId}}'
+  />
+  <div>
+    <label for='name'>Name</label><br />
+    <input type='text' name='name' id='name' required />
+  </div>
+  <div>
+    <label for='imagelink'>Image link</label><br />
+    <input type='text' name='imagelink' id='imagelink' required />
+  </div>
+  <button type='submit' class='button--anchor'>
+    Submit
+  </button>
+</form>
+
+<script>
+  const updateForm = document.querySelector("#updateForm")
+  updateForm.addEventListener("submit", updateRestaurant)
+</script>

@@ -5,14 +5,10 @@
     <a href='/restaurants/{{this.id}}' class='anchor--button'>
       View
     </a>
-    <a
-      href='/restaurants/{{this.id}}/edit'
-      data-id='{{this.id}}'
-      class='anchor--button'
-    >
+    <a href='/restaurants/{{this.id}}/edit' class='anchor--button'>
       Edit
     </a>
-    <button type='button' data-id='{{this.id}}'>
+    <button id='myButn' type='button' onClick='deleteRestaurant("{{this.id}}")'>
       Delete
     </button>
   </div>

@@ -1,6 +1,6 @@
 const config = {
   url: {
-    restaurants: 'http://localhost:3002/api/restaurants',
+    restaurants: 'http://localhost:3001/api/restaurants',
   },
 };
 
